@@ -1,0 +1,25 @@
+<div class="container">
+    <br/><br/><br/><br/>
+    <img src="assets/img/user_lock.png" style="height: 100px;"/> 	
+   <h2>USER LOGIN PAGE</h2>
+    
+   <span style="font-size: 22px;color: blue">{{message}}</span>
+     
+    <hr/>
+     <form>
+      <br/><br/>
+       <label>Username</label>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="text" [(ngModel)]="username" name="username" class="form-control" style="width:50%;display: inline;margin-right: 40px;"/>
+      <br/><br/>
+        <label>Password</label>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="password" name="password" [(ngModel)]="password" class="form-control" style="width: 50%;display: inline;margin-right: 40px;"/>
+      <br/><br/>
+       <button type="button" (click)="authUser();" class="btn btn-danger"  id="login">Login!</button>
+      <br/>
+      <hr/>
+      <span id="appmessage" style="font-size: 20px;"></span>
+     </form>
+     <br/><br/><br/><br/> <br/><br/><br/><br/> <br/>
+ </div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <img src="assets/img/icon.png"/> 	
+
+    <a routerLink="/login"><img src="assets/img/logout.png" style="height:50px;margin-left: 300px;"/></a>
+     	
+    
+   <h2>Student data coming from JSON!</h2>
+    <hr/>
+     <button type="button" class="btn btn-primary">Load data!</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-danger">Add Student!</button>
+      <br/><br/>
+      <span style="font-size: 20px;"></span>
+     <table class="table table-bordered">
+     <thead>
+       <tr>
+         <th>SNO</th>
+         <th>Name</th>
+         <th>
+           Email
+           <a href="javascipt:" id="dsorting">
+           <img src="assets/img/up.png">
+           </a>
+           <a href="javascipt:" id="asorting"><img src="assets/img/down.png"></a>
+         </th>
+         <th>Mobile</th>
+         <th>Gender</th>
+          <th>Image</th>
+       </tr>
+     </thead>
+     <tbody id="tcontents">
+
+        <tr *ngFor="let p of pdata; let i=index">
+         <td>&nbsp;{{i+1}}</td>
+        <td>&nbsp;{{p.name}}</td>
+        <td>&nbsp;{{p.email}}</td>
+        <td>&nbsp;{{p.mobile}}</td>
+        <td>&nbsp;{{p.gender}}</td>
+         <td>&nbsp;<img src="{{imageURI}}/{{p._id}}" style="height: 60px;"></td>
+       </tr>
+     </tbody>
+   </table>
+   <img src="assets/img/profiles.png"/>
+ </div>
+<hr/>
+ <br/><br/> <br/>
