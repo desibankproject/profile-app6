@@ -63,6 +63,10 @@ endPoint.use(function (err, req, res, next) {
 });
 require('./rest-api/utils/mongodb-utils')();
 
+//creating dummy logins
+var dataPusher=require('./rest-api/utils/login-data-pusher');
+dataPusher();
+
 //This is acting as middleware
 //require('./rest-api/security/validate-token')(endPoint);
 

@@ -10,7 +10,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp;
       <button type="button" class="btn btn-danger">Add Student!</button>
       <br/><br/>
-      <span style="font-size: 20px;"></span>
+      <span style="font-size: 20px;">{{message}}</span>
      <table class="table table-bordered">
      <thead>
        <tr>
@@ -36,7 +36,9 @@
         <td>&nbsp;{{p.email}}</td>
         <td>&nbsp;{{p.mobile}}</td>
         <td>&nbsp;{{p.gender}}</td>
-         <td>&nbsp;<img src="{{imageURI}}/{{p._id}}" style="height: 60px;"></td>
+         <td>&nbsp;<img src="{{imageURI}}/{{p._id}}" style="height: 60px;">
+          <button (click)="deleteData(p);" type="button" class="btn btn-success">Delete</button>
+        </td>
        </tr>
      </tbody>
    </table>

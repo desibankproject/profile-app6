@@ -1,5 +1,6 @@
 var jwt  = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var ProfileEntity=require('../model/profile-entity')
+var LoginEntity=require('../model/login-entity')
 var RESTAPI=require('../config/rest-api-constant');
 //Here we have to write logic to generate token using jsonwebtoken module!
 module.exports.authUser=(req,res)=> {
@@ -7,7 +8,8 @@ module.exports.authUser=(req,res)=> {
     var data=req.body; 
     var pusername=data.username;
     var ppassword=data.password;
-   ProfileEntity.find({username:pusername,password:ppassword})
+
+    LoginEntity.find({username:pusername,password:ppassword})
    .then(profile => {
        console.log(profile);//profile=[];
        if(profile.length>0) {

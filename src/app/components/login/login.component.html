@@ -6,11 +6,12 @@
    <span style="font-size: 22px;color: blue">{{message}}</span>
      
     <hr/>
-     <form>
+     {{loginForm.value | json}}
+     <form #loginForm="ngForm">
       <br/><br/>
        <label>Username</label>
        &nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="text" [(ngModel)]="username" name="username" class="form-control" style="width:50%;display: inline;margin-right: 40px;"/>
+      <input   [(ngModel)]="username"  type="text" name="username" class="form-control" style="width:50%;display: inline;margin-right: 40px;"/>
       <br/><br/>
         <label>Password</label>
        &nbsp;&nbsp;&nbsp;&nbsp;

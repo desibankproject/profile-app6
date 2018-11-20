@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+
 import { AppConfig } from 'src/app/config/app.config';
+import { ProfileService } from 'src/app/service/profile.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,10 +15,10 @@ export class DashboardComponent implements OnInit {
    private pdata=[];
 
    private imageURI:string="";
-
+   private message:string="";
    
 
-   constructor(private http: HttpClient) {
+   constructor(private profileService:ProfileService) {
     
    }
 
@@ -27,16 +28,25 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     const endpoint =AppConfig.FIND_PROFILES_ENDPOINT;
     this.imageURI=AppConfig.FIND_PROFILES_IMAGE_ENDPOINT;
-    endpoint
-    //Here we have to make rest call using HttpClient
-    //
-     let p:Observable<any>=this.http.get(endpoint);
+    this.profileService.findProfiles().subscribe(data=> {
+        console.log(data);
+       this.pdata=data;
+   })
+       
+  }
+
+  public deleteData(profile) :void {
+     ///profiles/:mid
+     console.log(profile);
      //hey  I want to object    
-     p.subscribe(data=> {
+     this.profileService.deleteData(profile).subscribe(data=> {
          console.log(data);
-         this.pdata=data;
-     });
-  
+         if(data.status=="success"){
+            this.pdata=this.pdata.filter(t =>t._id!=profile._id);
+         }
+         this.message=data.message;  
+
+      });
   }
 
 }
