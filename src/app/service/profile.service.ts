@@ -11,7 +11,7 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   public findProfiles() : Observable<any>{
-    const endpoint =AppConfig.FIND_PROFILES_ENDPOINT;
+     const endpoint =AppConfig.FIND_PROFILES_ENDPOINT;
      return this.http.get(endpoint);
   }
   

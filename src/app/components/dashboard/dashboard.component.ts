@@ -13,10 +13,9 @@ import { ProfileService } from 'src/app/service/profile.service';
 export class DashboardComponent implements OnInit {
 
    private pdata=[];
-
    private imageURI:string="";
    private message:string="";
-   
+ 
 
    constructor(private profileService:ProfileService) {
     
